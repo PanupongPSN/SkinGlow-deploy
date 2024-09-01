@@ -1,0 +1,13 @@
+{
+    "name": "skinglow/wordpress-app",
+    "description": "WordPress on Heroku",
+    "version": "1.0.0",
+    "require": {
+      "php": "^8.0"
+    },
+    "require-dev": {},
+    "scripts": {
+      "post-install-cmd": []
+    }
+  }
+  
