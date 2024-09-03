@@ -9,7 +9,7 @@ app = Flask(__name__)
 CORS(app)  # เปิดใช้งาน CORS สำหรับทุกเส้นทางในแอปพลิเคชัน
 
 # โหลดโมเดล
-model_path = r'E:\Project END\skinglow\wp-content\plugins\skin_model\AcneDetection_model.h5'
+model_path = 'wp-content\plugins\skin_model\AcneDetection_model.h5'
 model = tf.keras.models.load_model(model_path)
 print("Model loaded successfully.")  # ยืนยันว่าโมเดลถูกโหลดเรียบร้อยแล้ว
 

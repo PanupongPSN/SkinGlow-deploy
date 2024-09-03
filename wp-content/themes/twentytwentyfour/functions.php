@@ -206,6 +206,12 @@ endif;
 add_action( 'init', 'twentytwentyfour_pattern_categories' );
 
 function sap_enqueue_scripts() {
-    wp_enqueue_script('sap-script', plugin_dir_url(__FILE__) . 'E:\Project END\skinglow\wp-content\plugins\skin_model\sap-script.js', array('jquery'), null, true);
+    wp_enqueue_script(
+        'sap-script', 
+        plugin_dir_url(__FILE__) . 'wp-content/plugins/skin_model/sap-script.js', // แก้ไขเส้นทางเป็นเส้นทางที่สัมพันธ์
+        array('jquery'), 
+        null, 
+        true
+    );
 }
 add_action('wp_enqueue_scripts', 'sap_enqueue_scripts');
