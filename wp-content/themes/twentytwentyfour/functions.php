@@ -204,3 +204,8 @@ if ( ! function_exists( 'twentytwentyfour_pattern_categories' ) ) :
 endif;
 
 add_action( 'init', 'twentytwentyfour_pattern_categories' );
+
+function sap_enqueue_scripts() {
+    wp_enqueue_script('sap-script', plugin_dir_url(__FILE__) . 'sap-script.js', array('jquery'), null, true);
+}
+add_action('wp_enqueue_scripts', 'sap_enqueue_scripts');
