@@ -86,6 +86,9 @@ $table_prefix = 'wp_';
  */
 define( 'WP_DEBUG', false );
 
+define('WP_MEMORY_LIMIT', '256M');
+
+
 /* Add any custom values between this line and the "stop editing" line. */
 
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
