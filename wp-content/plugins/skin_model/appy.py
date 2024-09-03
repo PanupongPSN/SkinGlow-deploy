@@ -3,15 +3,22 @@ from flask_cors import CORS  # สำหรับการจัดการ COR
 import tensorflow as tf
 from PIL import Image, UnidentifiedImageError
 import numpy as np
-import io
+import os
 
 app = Flask(__name__)
 CORS(app)  # เปิดใช้งาน CORS สำหรับทุกเส้นทางในแอปพลิเคชัน
 
+# กำหนดเส้นทางของโมเดลโดยใช้ os.path.join
+current_directory = os.path.dirname(__file__)
+model_path = os.path.join(current_directory, 'wp-content', 'plugins', 'skin_model', 'AcneDetection_model.h5')
+
 # โหลดโมเดล
-model_path = 'wp-content\plugins\skin_model\AcneDetection_model.h5'
-model = tf.keras.models.load_model(model_path)
-print("Model loaded successfully.")  # ยืนยันว่าโมเดลถูกโหลดเรียบร้อยแล้ว
+try:
+    model = tf.keras.models.load_model(model_path)
+    print("Model loaded successfully.")  # ยืนยันว่าโมเดลถูกโหลดเรียบร้อยแล้ว
+except Exception as e:
+    print(f"Error loading model: {e}")
+    exit(1)  # หยุดโปรแกรมหากไม่สามารถโหลดโมเดลได้
 
 def preprocess_image(uploaded_file):
     """
@@ -20,12 +27,17 @@ def preprocess_image(uploaded_file):
     try:
         # เปิดและปรับขนาดรูปภาพ
         img = Image.open(uploaded_file)
+        img = img.convert('RGB')  # แปลงภาพเป็น RGB เพื่อป้องกันข้อผิดพลาดจากภาพที่มีโหมดสีต่างกัน
         img = img.resize((150, 150))  # ปรับขนาดให้ตรงกับที่โมเดลต้องการ
         img_array = np.array(img)
         img_array = np.expand_dims(img_array, axis=0)
         img_array = img_array / 255.0  # ปรับขนาดพิกเซลให้อยู่ในช่วง 0-1
         return img_array
     except UnidentifiedImageError:
+        print("Error: Unidentified image format")
+        return None
+    except Exception as e:
+        print(f"Error processing image: {str(e)}")
         return None
 
 @app.route('/predict', methods=['POST'])
