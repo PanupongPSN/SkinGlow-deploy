@@ -40,6 +40,8 @@ define( 'DB_COLLATE', '' );
 define('WP_HOME', 'https://skin-glow-b19104e203b2.herokuapp.com');
 define('WP_SITEURL', 'https://skin-glow-b19104e203b2.herokuapp.com');
 
+define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
+
 /**#@+
  * Authentication unique keys and salts.
  *
@@ -86,7 +88,9 @@ define( 'WP_DEBUG', false );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
-
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+    $_SERVER['HTTPS'] = 'on';
+}
 
 /* That's all, stop editing! Happy publishing. */
 
