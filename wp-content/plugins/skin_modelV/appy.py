@@ -20,6 +20,7 @@ def download_model_from_s3(bucket_name, model_key, download_path):
     except NoCredentialsError:
         print("Credentials not available")
     except Exception as e:
+        print(f"Error downloading model: {e}")
 
 # ดาวน์โหลดโมเดลจาก S3 (ถ้าโมเดลไม่อยู่ในเครื่อง)
 if not os.path.exists(model_path):
