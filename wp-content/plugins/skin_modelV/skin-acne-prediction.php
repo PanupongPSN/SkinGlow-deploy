@@ -17,7 +17,7 @@ function sap_prediction_form() {
         <img id="uploadedImage" style="display:none; width: 100%; max-width: 400px;"/>
         <p id="analyzingMessage"></p>
         <p id="result"></p>
-        <script src="' . plugin_dir_url(__FILE__) . 'wp-content/plugins/skin_modelV/sap-script.js"></script>
+        <script src="' . plugin_dir_url(__FILE__) . 'sap-script.js"></script>
     ';
 }
 add_shortcode('sap_form', 'sap_prediction_form');

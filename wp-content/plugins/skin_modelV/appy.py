@@ -9,7 +9,7 @@ from botocore.exceptions import NoCredentialsError
 
 # กำหนดเส้นทางของโมเดลโดยใช้ os.path.join
 current_directory = os.path.dirname(__file__)
-model_path = os.path.join(current_directory, 'wp-content', 'plugins', 'skin_modelV', 'AcneDetection_model.h5')
+model_path = os.path.join(current_directory, 'AcneDetection_model.h5')
 
 # ฟังก์ชันดาวน์โหลดโมเดลจาก S3
 def download_model_from_s3(bucket_name, model_key, download_path):
@@ -20,7 +20,6 @@ def download_model_from_s3(bucket_name, model_key, download_path):
     except NoCredentialsError:
         print("Credentials not available")
     except Exception as e:
-        print(f"Error downloading model: {e}")
 
 # ดาวน์โหลดโมเดลจาก S3 (ถ้าโมเดลไม่อยู่ในเครื่อง)
 if not os.path.exists(model_path):
