@@ -208,7 +208,7 @@ add_action( 'init', 'twentytwentyfour_pattern_categories' );
 function sap_enqueue_scripts() {
     wp_enqueue_script(
         'sap-script', 
-        plugin_dir_url(__FILE__) . 'wp-content/plugins/skin_model/sap-script.js', // แก้ไขเส้นทางเป็นเส้นทางที่สัมพันธ์
+        plugin_dir_url(__FILE__) . 'wp-content/plugins/skin_modelV/sap-script.js', // แก้ไขเส้นทางเป็นเส้นทางที่สัมพันธ์
         array('jquery'), 
         null, 
         true
