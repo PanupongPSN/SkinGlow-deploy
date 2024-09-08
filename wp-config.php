@@ -26,7 +26,7 @@ define( 'DB_NAME', 'wgcmc6h8uimg3om8' );
 define( 'DB_USER', 'sgg89on8z9qxfm3o' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'ml5nzlk5085reafc' );
+define( 'DB_PASSWORD', 'kkz169wk33bu58qf' );
 
 /** Database hostname */
 define( 'DB_HOST', 'kil9uzd3tgem3naa.cbetxkdyhwsb.us-east-1.rds.amazonaws.com' );
