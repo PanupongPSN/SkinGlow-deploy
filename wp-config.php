@@ -37,8 +37,8 @@ define( 'DB_CHARSET', 'utf8' );
 /** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
 
-define('WP_HOME', 'https://skin-glow-b19104e203b2.herokuapp.com');
-define('WP_SITEURL', 'https://skin-glow-b19104e203b2.herokuapp.com');
+define('WP_HOME', 'https://skin-glow-31dcf480a1ff.herokuapp.com');
+define('WP_SITEURL', 'https://skin-glow-31dcf480a1ff.herokuapp.com');
 
 define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
 
